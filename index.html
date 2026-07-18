@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PresdirVei - Portfolio</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    background: #0a0a0a;
+    color: #fff;
+}
+
+header{
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    padding: 20px 10%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo{
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+.logo span{ color: #00f7ff; }
+
+nav a{
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 25px;
+    transition: .3s;
+}
+nav a:hover, nav a.active{ color: #00f7ff; }
+
+section{
+    min-height: 100vh;
+    padding: 100px 10% 80px;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.home-img img{
+    width: 350px;
+    border-radius: 50%;
+    border: 5px solid #00f7ff;
+    box-shadow: 0 0 25px #00f7ff;
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-20px); }
+}
+
+.home-content h1{ font-size: 45px; font-weight: 700; }
+.home-content h1 span{ color: #00f7ff; }
+.home-content h3{ font-size: 32px; margin: 10px 0; }
+.home-content p{ font-size: 16px; margin: 20px 0; line-height: 1.8; }
+
+.typing-text span{
+    color: #00f7ff;
+}
+.typing-text span::before{
+    content: "Web Developer";
+    animation: words 12s infinite;
+}
+@keyframes words {
+    0%,20%{ content: "VibeCoder"; }
+    21%,40%{ content: "Pelajar"; }
+    41%,60%{ content: "Main Menu EAI"; }
+    61%,80%{ content: "Wibu"; }
+    81%,100%{ content: "Npc aja"; }
+}
+
+.social-icons a{
+    display: inline-flex;
+    width: 40px; height: 40px;
+    border: 2px solid #00f7ff;
+    border-radius: 50%;
+    color: #00f7ff;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 10px;
+    transition: .3s;
+    font-size: 20px;
+    text-decoration: none;
+}
+.social-icons a:hover{
+    background: #00f7ff;
+    color: #000;
+    box-shadow: 0 0 15px #00f7ff;
+}
+
+.btn{
+    display: inline-block;
+    padding: 12px 28px;
+    background: #00f7ff;
+    border-radius: 40px;
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s;
+}
+.btn:hover{ box-shadow: 0 0 20px #00f7ff; }
+
+.heading{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+.heading span{ color: #00f7ff; }
+
+.aboutme h3{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #ccc;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill-container, .service-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+.skill-box, .service-box, .edukasi-box, .experience-box{
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: .3s;
+}
+.skill-box:hover, .service-box:hover, .edukasi-box:hover, .experience-box:hover{
+    transform: translateY(-10px);
+    border-color: #00f7ff;
+    box-shadow: 0 0 20px #00f7ff;
+}
+.skill-box i, .service-box i{ font-size: 50px; color: #00f7ff; margin-bottom: 15px; }
+
+.edukasi-box h3, .experience-box h3{ color: #00f7ff; margin-bottom: 10px; }
+.experience-year{
+    display: inline-block;
+    padding: 5px 15px;
+    background: #00f7ff;
+    color: #000;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.tags span{
+    display: inline-block;
+    background: #0a0a0a;
+    border: 1px solid #00f7ff;
+    padding: 5px 12px;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+.contact{
+    background: #111;
+}
+.contact-text{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #aaa;
+}
+.contact form{
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+.input-box{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.contact form .input-box input,
+.contact form textarea{
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+    background: #1a1a1a;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    margin: 10px 0;
+    outline: none;
+    transition: .3s;
+}
+.contact form .input-box input{ width: 49%; }
+.contact form textarea{ resize: none; }
+.contact form .input-box input:focus,
+.contact form textarea:focus{
+    border: 2px solid #00f7ff;
+    box-shadow: 0 0 10px #00f7ff;
+}
+.contact form .btn{
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+}
+.contact-info{
+    margin-top: 50px;
+    text-align: center;
+}
+.contact-info a{
+    display: inline-block;
+    color: #00f7ff;
+    text-decoration: none;
+    margin: 10px 15px;
+    font-size: 18px;
+    transition: .3s;
+}
+.contact-info a:hover{
+    color: #fff;
+    text-shadow: 0 0 10px #00f7ff;
+}
+.contact-info i{ margin-right: 5px; }
+
+footer{
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    border-top: 1px solid #00f7ff;
+} 
+
+@media(max-width: 900px){
+    nav{ display: none; } /* biar rapi di HP */
+    .home{ flex-direction: column; text-align: center; }
+    .home-img img{ width: 250px; }
+    .contact form .input-box input{ width: 100%; }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Presdir<span>Vei</span></a>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#aboutme">About Me</a>
+            <a href="#skill">Skill</a>
+            <a href="#edukasi">Edukasi</a>
+            <a href="#service">Service</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-img">
+            <img src="https://files.catbox.moe/euzlcy.jpg" alt="Foto PresdirVei">
+        </div>
+        <div class="home-content">
+            <h1>Halo, Everyone <span>I'm PresdirVei</span></h1>
+            <h3 class="typing-text">Aku itu seorang <span></span></h3>
+            <p>Welcome To My Portofolio PresdirVei || Website ini Saya Build Cause for my Ego hehe....</p>
+            
+            <div class="social-icons">
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-github'></i></a>
+                <a href="#"><i class='bx bxl-telegram'></i></a>
+                <a href="#"><i class='bx bxl-tiktok'></i></a>
+            </div>
+            <a href="#contact" class="btn">Hire Me</a>
+        </div>
+    </section>
+
+    <section class="aboutme" id="aboutme">
+        <h2 class="heading">About <span>Me</span></h2>
+        <h3>Kenalin my name is Faisal Putra A. saya biasa dipanggil Isall. Saya tinggal di Indonesia bagian Tangerang. Disini saya akan memperkenalkan diri dalam bentuk Website Portofolio, Salam kenal aku gwejh saya i iam, Saya manusia biasa, makan nasi, oke sekiaan from me, cukup tau dari situ aja jangan berlebihan, selebihnya YNTKS</h3>
+    </section>
+
+    <section class="skill" id="skill">
+        <h2 class="heading">My <span>Skill</span></h2>
+        <div class="skill-container">
+            <div class="skill-box"><i class='bx bxl-html5'></i><h3>HTML</h3></div>
+            <div class="skill-box"><i class='bx bxl-java'></i><h3>JAVA</h3></div>
+            <div class="skill-box"><i class='bx bxl-javascript'></i><h3>JavaScript</h3></div>
+            <div class="skill-box"><i class='bx bxl-python'></i><h3>Python</h3></div>
+        </div>
+    </section>
+
+    <section class="edukasi" id="edukasi">
+        <h2 class="heading">My <span>Education</span></h2>
+        <div class="edukasi-box">
+            <h3>"Disiplin mengalahkan bakat, ketika bakat tidak disiplin."</h3>
+            <p>Apapun yang ingin kamu kuasai, kuncinya cuma 2: Mulai dan Jangan Berhenti.</p>
+        </div>
+        <div class="edukasi-box">
+            <h3>"Belajar bukan untuk tahu semuanya. Belajar untuk tidak takut pada apapun."</h3>
+            <p>Skill bisa dicari. Mental pantang menyerah harus dilatih.</p>
+        </div>
+    </section>
+
+    <section class="service" id="service">
+        <h2 class="heading">My <span>Service</span></h2>
+        <div class="service-container">
+            <div class="service-box">
+                <i class='bx bx-code-alt'></i> 
+                <h3>No open Service Mpruy</h3>
+                <p>ComingSoon kalo mood</p>
+                <ul style="list-style:none; text-align:left; margin-top:15px;">
+                    <li>✔️ Desain Tergantung mood</li>
+                    <li>✔️ Soon</li>
+                    <li>✔️ ComingSoon</li>
+                    <li>✔️ Gak open Service btw</li>
+                </ul>
+                <a href="#contact" class="btn" style="margin-top:20px;">Jangan di Clik</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <h2 class="heading">My <span>Experience</span></h2>
+        <div class="experience-box">
+            <div class="experience-year">18 JULI 2026</div>
+            <h3>Sebuah Portofolio yang di Buat karena Gabut</h3>
+            <h4>Project Pribadi</h4>
+            <p>Ini adalah Project Portofolio yang di buat Untuk memuaskan ego saya</p>
+            <div class="tags">
+                <h3>Saya membuat ini Dengan</h3>
+                <span>HTML</span> <span>CSS</span> <span>WhatsApp API</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <p class="contact-text">You Can Contact Me atau Mau Berbicara Tentang Web ini</p>
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="Nama Lengkap" required>
+                <input type="email" placeholder="Email Kamu" required>
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="No. WhatsApp">
+                <input type="text" placeholder="Subjek">
+            </div>
+            <textarea cols="30" rows="10" placeholder="Ceritakan project kamu..." required></textarea>
+            <input type="submit" value="Kirim Pesan" class="btn">
+        </form>
+        <div class="contact-info">
+            <a href="https://wa.me/6285710183032" target="_blank"><i class='bx bxl-whatsapp'></i> Chat WhatsApp</a>
+            <a href="mailto:pppbapaklu@gmail.com"><i class='bx bx-envelope'></i> pppbapaklu@gmail.com</a>
+            <a href="#"><i class='bx bxl-instagram'></i> @PresdirVeisaL.XzC</a>
+            <a href="https://t.me/Nugzgtg" target="_blank"><i class='bx bxl-telegram'></i> Chat di Telegram</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Portofolio By PresdirVei | Ini Project Hanya Untuk Memperkenalkan kemampuan Saya</p>
+    </footer>
+</body>
+</html>
